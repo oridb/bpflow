@@ -1,6 +1,7 @@
 MYRBIN=bpflow
 MYRSRC= \
-	bpflow.myr
+	bpflow.myr \
+	types.myr
 
 include config.mk
 include mk/myr.mk

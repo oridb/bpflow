@@ -1,0 +1,8 @@
+pkg bpf =
+	type insn = struct
+                   code : uint16
+		   jt	: byte
+		   jf	: byte
+		   k	: uint32
+	;;
+;;
