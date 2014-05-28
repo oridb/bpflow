@@ -5,4 +5,23 @@ pkg bpf =
 		   jf	: byte
 		   k	: uint32
 	;;
+
+        type ts = struct
+                   bt_sec  : int64
+                   bt_frac : uint64
+        ;;
+
+        type xhdr = struct
+                   bh_tstamp  : ts
+                   bh_caplen  : uint32
+                   bh_datalen : uint32
+                   bh_hdrlen  : uint16
+        ;;
+
+        type hdr = struct
+                   bh_tstamp  : ts
+                   bh_caplen  : uint32
+                   bh_datalen : uint32
+                   bh_hdrlen  : uint16
+        ;;
 ;;
