@@ -1,0 +1,5 @@
+use std
+
+const main = {
+	std.put("And so it begins\n")
+}
