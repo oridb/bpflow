@@ -1,0 +1,57 @@
+pkg net =
+	type ethhdr = struct
+		dest   : byte[6]
+		source : byte[6]	
+		proto  : uint16	
+	;;
+
+	type iphdr = struct
+		/* ver, ihl here in a byte, 4 bits each */
+		v_hl  : byte	
+		tos   : byte
+		len   : uint16
+		id    : uint16
+		off   : uint16 
+		ttl   : byte
+		proto : byte
+		sum   : uint16
+		src   : uint32
+		dst   : uint32
+		/* options if IHL > 5 */
+	;;
+
+	type udphdr = struct
+		sport : uint16
+		dport : uint16
+		len   : uint16
+		sum   : uint16
+	;;
+
+	type tcphdr = struct
+		sport : uint16
+		dport :	uint16
+		seq   : uint32
+		ack   : uint32
+		/* offset(4), reserved here  */
+		off   : byte
+		flags : byte
+		win   : uint16
+		sum   : uint16
+		urp   : uint16	
+	;;
+
+	/* IP fragmentation options */
+	const Iprf : off = 0x8000
+	const Ipdf : off = 0x4000
+	const Ipmf : off = 0x2000
+
+	/* TCP flags */
+	const Thfin  : flags = 0x01
+	const Thsyn  : flags = 0x02 
+	const Thrst  : flags = 0x04 
+	const Thpush : flags = 0x08 
+	const Thack  : flags = 0x10
+	const Thurg  : flags = 0x20
+	const Thece  : flags = 0x40
+	const Thcwr  : flags = 0x80
+;;
