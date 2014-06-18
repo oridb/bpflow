@@ -1,13 +1,19 @@
 use std
 
+use "net.use"
+
 const main = {
 	var sock
+	var buf	: byte[16384]
 
 	std.put("And so it begins\n")
-
-	match std.dial("tcp!google.com!http")
-	| `std.Ok s:	sock = s
-	| `std.Fail msg:	std.fatal(1, "Failed to connect: %s\n", msg)
+	sock = std.socket(std.Afinet, std.Sockraw, std.Ipproto_udp)
+	if sock < 0
+		std.fatal(1, "got error %l\n", -sock)
+	else
+		std.put("Got socket: %l\n", sock)
 	;;
-	std.put("Got socket: %l\n", sock)
+
+
+
 }
