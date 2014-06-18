@@ -6,8 +6,8 @@ const main = {
 	std.put("And so it begins\n")
 
 	match std.dial("tcp!google.com!http")
-	| `std.Success s:	sock = s
-	| `std.Failure msg:	std.fatal(1, "Failed to connect: %s\n", msg)
+	| `std.Ok s:	sock = s
+	| `std.Fail msg:	std.fatal(1, "Failed to connect: %s\n", msg)
 	;;
 	std.put("Got socket: %l\n", sock)
 }
