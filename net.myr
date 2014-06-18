@@ -33,7 +33,7 @@ pkg net =
 		seq   : uint32
 		ack   : uint32
 		/* offset(4), reserved here  */
-		off   : byte
+		off : byte
 		flags : byte
 		win   : uint16
 		sum   : uint16
@@ -41,17 +41,17 @@ pkg net =
 	;;
 
 	/* IP fragmentation options */
-	const Iprf : off = 0x8000
-	const Ipdf : off = 0x4000
-	const Ipmf : off = 0x2000
+	const Iprf : uint16 = 0x8000
+	const Ipdf : uint16 = 0x4000
+	const Ipmf : uint16 = 0x2000
 
 	/* TCP flags */
-	const Thfin  : flags = 0x01
-	const Thsyn  : flags = 0x02 
-	const Thrst  : flags = 0x04 
-	const Thpush : flags = 0x08 
-	const Thack  : flags = 0x10
-	const Thurg  : flags = 0x20
-	const Thece  : flags = 0x40
-	const Thcwr  : flags = 0x80
+	const Thfin  : byte = 0x01
+	const Thsyn  : byte = 0x02 
+	const Thrst  : byte = 0x04 
+	const Thpush : byte = 0x08 
+	const Thack  : byte = 0x10
+	const Thurg  : byte = 0x20
+	const Thece  : byte = 0x40
+	const Thcwr  : byte = 0x80
 ;;
